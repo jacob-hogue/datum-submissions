@@ -1,0 +1,54 @@
+name: "Add a GIS server"
+description: Submit a public ArcGIS REST endpoint that isn't in the directory yet
+title: "[add] <jurisdiction> — <host>"
+labels: ["request:add", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks! We only list the **top-level** `.../rest/services` endpoint, not individual layers."
+  - type: input
+    id: url
+    attributes:
+      label: Server URL
+      placeholder: https://gis.example.gov/arcgis/rest/services
+    validations: { required: true }
+  - type: input
+    id: org
+    attributes:
+      label: Jurisdiction / agency name
+      placeholder: "Kitsap County" or "WA Dept of Ecology"
+    validations: { required: true }
+  - type: dropdown
+    id: level
+    attributes:
+      label: Level
+      options: [federal, state, regional, county, city, township, tribal, territory, multistate, ngo, other]
+    validations: { required: true }
+  - type: input
+    id: state
+    attributes:
+      label: State (USPS code)
+      placeholder: WA
+  - type: input
+    id: website
+    attributes:
+      label: Agency website (optional)
+  - type: input
+    id: contact
+    attributes:
+      label: Public GIS contact page or email (optional)
+      description: Only info the agency itself publishes.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: What's on it? Parcels, aerials, anything notable.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirm
+      options:
+        - label: The endpoint loads without a login
+          required: true
+        - label: This is a government or public-interest server, not a private company
+          required: true
