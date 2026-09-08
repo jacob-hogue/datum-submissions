@@ -13,13 +13,17 @@ body:
     id: action
     attributes:
       label: What needs to change?
+      # These strings are also the option values in the form at
+      # datum-gis.com/contribute/change/. GitHub matches a prefill on the label,
+      # so a change here has to be made in both places or the dropdown arrives
+      # with nothing selected.
       options:
-        - Server is dead / moved (report_dead)
-        - URL is wrong or has a new address (update_server)
-        - Wrong jurisdiction, level, or state (update_org)
-        - Add or fix website / contact details (update_org)
-        - Remove — not a public government server (remove_server)
-        - Other
+        - Stopped responding
+        - The URL changed
+        - Attributed to the wrong organization
+        - The level or state is wrong
+        - It needs a login now
+        - Something else
     validations: { required: true }
   - type: textarea
     id: change
